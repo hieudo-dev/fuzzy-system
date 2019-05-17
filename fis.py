@@ -1,11 +1,11 @@
-from aggregation import Mamdani, Larsen
+from aggregation import AggregationMethods
 from defuzzification import DefuzzificationMethods
 import membership
 
 class FuzzificationInferenceSystem:
 	methods = {
-		'mamdani': Mamdani,
-		'larsen': Larsen,
+		'mamdani': AggregationMethods.Mamdani,
+		'larsen': AggregationMethods.Larsen,
 		'centroid': DefuzzificationMethods.Centroid,
 		'bisector': DefuzzificationMethods.Bisector,
 		'meanmax': DefuzzificationMethods.MeanMaximum,
