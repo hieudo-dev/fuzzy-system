@@ -1,8 +1,9 @@
 from aggregation import AggregationMethods
 from defuzzification import DefuzzificationMethods
-import membership
+from rule import Rule
+from membership import Pi, Triangular
 
-class FuzzificationInferenceSystem:
+class FuzzyInferenceSystem:
 	methods = {
 		'mamdani': AggregationMethods.Mamdani,
 		'larsen': AggregationMethods.Larsen,
@@ -17,5 +18,7 @@ class FuzzificationInferenceSystem:
 		self.aggrMethod = self.methods[aggrMethod]
 		self.defuzMethod = self.methods[defuzMethod]
 
-	def infer(self, rules, input, mbersMethod):
-		pass
+	def infer(self, rules, inputs, mbersMethods, domain):
+		_rules = [Rule(rule, implication, max, min, lambda x: 1-x) for rule, implication in rules]
+		lx, ly = self.aggrMethod(_rules, inputs, domain, mbersMethods)
+		return self.defuzMethod(lx, ly), lx, ly

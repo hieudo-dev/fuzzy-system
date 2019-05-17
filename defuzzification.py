@@ -10,7 +10,7 @@ class DefuzzificationMethods:
 
 
 	@staticmethod
-	def BisectorDiscrete(x, y):
+	def BisectorDiscrete(sample, mbership):
 		def middle_index(i, l, old_l=float('-inf'), old_r=float('inf')):
 			rigthSum = sum([l[idx] for idx in range(i, len(l))])
 			leftSum = sum(l) - rigthSum
@@ -21,8 +21,8 @@ class DefuzzificationMethods:
 				return middle_index(i+1, l, leftSum, rigthSum)
 			return middle_index(i-1, l, leftSum, rigthSum)
 
-		result = middle_index(int(len(y)/2), y)
-		return x[result]
+		result = middle_index(int(len(mbership)/2), mbership)
+		return sample[result]
 		
 
 	@staticmethod

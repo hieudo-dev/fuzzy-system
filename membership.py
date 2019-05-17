@@ -9,23 +9,18 @@ def curry(x, argc=None):
         return curry(q, argc - len(a))
     return p
 
+@curry
+def Pi(a, b, c, d, x):
+    if a <= x <= b:
+        return (x - a) / (b - a)
+    if c <= x <= d:
+        return (d - x) / (d - c)
+    return 1 if b <= x <= c else 0
 
-class MembershipMethods:
-    @curry
-    @staticmethod
-    def pi(a, b, c, d, x):
-        if a <= x <= b:
-            return (x - a) / (b - a)
-        if c <= x <= d:
-            return (d - x) / (d - c)
-        return 1 if b <= x <= c else 0
-
-
-    @curry
-    @staticmethod
-    def triangular(a, b, m, x):
-        if x <= a or x >= b:
-            return 0
-        elif a < x <= m:
-            return (x-a)/(m-a)
-        return (b-x)/(b-m)
+@curry
+def Triangular(a, b, m, x):
+    if x <= a or x >= b:
+        return 0
+    elif a < x <= m:
+        return (x-a)/(m-a)
+    return (b-x)/(b-m)
