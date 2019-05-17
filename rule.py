@@ -1,7 +1,7 @@
 class Rule:
-	def __init__(self, rule, implication, opOr, opAnd, opNot):
+	def __init__(self, rule, consequent, opOr, opAnd, opNot):
 		self.rule = rule.split(' ')
-		self.implication = implication
+		self.consequent = consequent
 		self.opOr = opOr
 		self.opAnd = opAnd
 		self.opNot = opNot
@@ -36,7 +36,7 @@ class Rule:
 		for i in range(2, len(tokenList)-2, 2):
 			result = op(result, tokenList[i])
 			if tokenList[i+1] == '&':
-					op = self.opAnd
+				op = self.opAnd
 			else:
-					op = self.opOr
+				op = self.opOr
 		return op(result, tokenList[len(tokenList)-1])
