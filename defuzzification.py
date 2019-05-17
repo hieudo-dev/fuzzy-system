@@ -1,5 +1,3 @@
-import numpy as np
-
 class DefuzzificationMethods:
 	@staticmethod
 	def Centroid(sample, mbership):
@@ -38,10 +36,12 @@ class DefuzzificationMethods:
 		return sample[mbership.index(max(mbership))]
 
 	@staticmethod
-	def MeanMaximum(x, y):
-		max_l = max(y)
-		values = []
-		for i in range(len(y)):
-			if y[i] == max_l:
-					values.append(x[i])
-		return np.average(values)
+	def MeanMaximum(sample, mbership):
+		max_val = max(mbership)
+		sum = 0
+		max_cnt = 0
+		for i in range(len(mbership)):
+			if mbership[i] == max_val:
+				sum += sample[i]
+				max_cnt+=1
+		return sum / max_cnt
