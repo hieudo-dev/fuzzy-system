@@ -14,19 +14,19 @@ class Rule:
 			else:
 				ruleValues.append(token)
 
+		negated = False
 		tokenList = []
-		neg = False
 		for token in ruleValues:
-			if token == '~':
-					neg = True
-			elif token == '&' or token == '|':
+			if token == '&' or token == '|':
 					tokenList.append(token)
+			elif token == '~':
+					negated = True
 			else:
-					if neg:
-						tokenList.append(self.opNot(token))
-						neg = False
-					else:
-						tokenList.append(token)
+				if negated:
+					tokenList.append(self.opNot(token))
+					negated = False
+				else:
+					tokenList.append(token)
 
 		result = tokenList[0]
 		if tokenList[1] == '&':

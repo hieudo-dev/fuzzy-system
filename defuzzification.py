@@ -8,13 +8,12 @@ class DefuzzificationMethods:
 			den += mbership[i]
 		return sum/den
 
-
 	@staticmethod
 	def BisectorDiscrete(sample, mbership):
 		def middle_index(i, l, old_l=float('-inf'), old_r=float('inf')):
 			rigthSum = sum([l[idx] for idx in range(i, len(l))])
 			leftSum = sum(l) - rigthSum
-			
+
 			if rigthSum == leftSum or abs(old_l-old_r) <= abs(leftSum-rigthSum) or i+1 >= len(l) or i-1 < 0:
 				return i
 			elif rigthSum > leftSum:
@@ -23,7 +22,6 @@ class DefuzzificationMethods:
 
 		result = middle_index(int(len(mbership)/2), mbership)
 		return sample[result]
-		
 
 	@staticmethod
 	def LastMaximum(sample, mbership):
