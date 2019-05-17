@@ -11,7 +11,7 @@ class AggregationMethods:
 		ly = []
 		for i in range(len(rules)):
 			for x in np.arange(domain[0], domain[1], 0.2):
-				y = mbersFuncs[rules[i].implication](x)
+				y = mbersFuncs[rules[i].consequent](x)
 				z = y if results[i] >= y and y >= 0 else results[i]
 				if not x in lx:
 					lx.append(x)
@@ -31,7 +31,7 @@ class AggregationMethods:
 		ly = []
 		for i in range(len(rules)):
 			for x in np.arange(domain[0], domain[1], 0.2):
-				y = mbersFuncs[rules[i].implication](x)
+				y = mbersFuncs[rules[i].consequent](x)
 				z = y*results[i]
 				if not x in lx:
 					lx.append(x)

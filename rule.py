@@ -29,7 +29,7 @@ class Rule:
 					tokenList.append(token)
 
 		result = tokenList[0]
-		if tokenList[1] == '&':
+		if len(tokenList) > 1 and tokenList[1] == '&':
 			op = self.opAnd
 		else:
 			op = self.opOr
