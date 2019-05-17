@@ -7,7 +7,7 @@ class FuzzificationInferenceSystem:
 		'mamdani': AggregationMethods.Mamdani,
 		'larsen': AggregationMethods.Larsen,
 		'centroid': DefuzzificationMethods.Centroid,
-		'bisector': DefuzzificationMethods.Bisector,
+		'bisector': DefuzzificationMethods.BisectorDiscrete,
 		'meanmax': DefuzzificationMethods.MeanMaximum,
 		'lastmax': DefuzzificationMethods.LastMaximum,
 		'firstmax': DefuzzificationMethods.FirstMaximum,
