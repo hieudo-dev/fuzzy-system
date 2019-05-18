@@ -56,7 +56,7 @@ memb = {
 	'HighTip': Triangular(13, 26, 25)
 }
 
-s = FuzzyInferenceSystem('mamdani', 'centroid')
+s = FuzzyInferenceSystem('mamdani', 'meanmax')
 vals = {
 	'GoodService': service,
 	'AverageService': service,
